@@ -2,9 +2,6 @@ import csv
 import sys
 
 
-    # print((reader)[0]["full_name"])
-
-
 def login():
     username = input("What's your Username? ").lower()
     password = input("What's your Password? ").lower()
@@ -12,22 +9,13 @@ def login():
         reader = csv.DictReader(csvfile, fieldnames=["full_name", "username", "password", "extra information"])
 
         for row in reader:
-            # print(row["username"])
-            # print(row["password"])
-            if username == row["username"].lower():
-                if password == row["password"].lower():
+            if username == row["username"].lower() and password == row["password"].lower():
+                # if password == row["password"].lower():
                     # print(username, password)
                     logged_in()
-        else:  # username != line["username"] or password != line["password"]:
+        else:
             print("Invalid entry, please try again")
             login()
-    # for line in reader:
-    #     if password in line["password"]:
-    #         return password
-    #     print(password)
-        # print(line["username"])
-        # if username ==:
-        #     print(
 
 
 def logged_in():
@@ -41,18 +29,6 @@ def logged_in():
     else:
         print("Invalid entry")
         logged_in()
-
-
-def create_user():
-    pass
-    # full_name = input("Enter your full name:\n> ")
-    # password = input("Enter your password:\n> ")
-    # random_fact = input("What's a random fact about yourself?\n> ")
-    #
-    # with open("stored_info.csv", "a") as csvfile:
-    #     fieldnames = ["full_name", "user_name", "password", "random_fact"]
-    #     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-    #     writer.writerow({"full_name": "{}".format(full_name), "user_name": "{}".format(username), "password": "{}".format(password), "random_fact": "{}".format(random_fact)})
 
 
 def user_validation():
@@ -77,6 +53,5 @@ def user_validation():
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writerow({"full_name": "{}".format(full_name), "user_name": "{}".format(username), "password": "{}".format(password), "random_fact": "{}".format(random_fact)})
     logged_in()
-#
+
 login()
-# # print(stored_info.writerow)
