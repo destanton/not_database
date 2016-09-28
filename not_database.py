@@ -10,8 +10,6 @@ def login():
 
         for row in reader:
             if username == row["username"].lower() and password == row["password"].lower():
-                # if password == row["password"].lower():
-                    # print(username, password)
                     logged_in()
         else:
             print("Invalid entry, please try again")
@@ -35,9 +33,7 @@ def user_validation():
     username = input("Pick a username:\n> ")
     with open("stored_info.csv") as csvfile:
         reader = csv.DictReader(csvfile, fieldnames=["full_name", "username", "password", "extra information"])
-        # print(list(reader))
         for row in reader:
-            # print(row["username"])
             if username.lower() == row["username"].lower():
                 print("That username is not available")
                 user_validation()
